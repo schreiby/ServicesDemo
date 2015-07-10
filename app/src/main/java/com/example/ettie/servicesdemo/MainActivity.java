@@ -15,8 +15,9 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void startService(View view) {
-        Intent intent = new Intent(this, MyServices.class);
-        startService(intent);
+        //Intent intent = new Intent(this, MyServices.class);
+        //startService(intent);
+        startService(new Intent(getBaseContext(), MyIntentService.class));
     }
 
     public void stopService(View view) {
