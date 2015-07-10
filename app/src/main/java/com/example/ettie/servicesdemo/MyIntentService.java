@@ -21,6 +21,10 @@ public class MyIntentService extends IntentService{
         try{
             downloadFile(new URL("http://example.com/downloads/somefile.pdf"));
             Log.d("MyIntentService", "Download completed");
+
+            //send a broadcast to notify the activity when the download is finished
+            Intent broadcastIntent = new Intent("FILE_DOWNLOAD_ACTION");
+            getBaseContext().sendBroadcast(broadcastIntent);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
